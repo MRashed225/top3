@@ -1,19 +1,56 @@
-import  axios  from 'axios';
-import { Bounce, toast } from 'react-toastify';
+// import  axios  from 'axios';
+// import { Bounce, toast } from 'react-toastify';
 
+
+// export async function addProductToCart(productId) {
+
+//     const { data } = await axios.post(
+//       " https://ecommerce.routemisr.com/api/v1/cart",
+//       {
+//         productId,
+//       },
+//       { headers: { token: localStorage.getItem("token") } }
+//     )
+
+//    console.log(data);
+
+//    toast.success("the Product Add ", {
+//     position: "top-right",
+//     autoClose: 5000,
+//     hideProgressBar: false,
+//     closeOnClick:  true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+//     theme: "light",
+//     transition: Bounce,
+//     });
+//   }
+import axios from "axios";
+import { Bounce, toast } from "react-toastify";
 
 export async function addProductToCart(productId) {
+  try {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      toast.error("Authentication required!", {
+        position: "top-right",
+        autoClose: 3000,
+        transition: Bounce,
+      });
+      return;
+    }
 
     const { data } = await axios.post(
-      " https://ecommerce.routemisr.com/api/v1/cart",
-      {
-        productId,
-      },
-      { headers: { token: localStorage.getItem("token") } }
-    )
+      "https://ecommerce.routemisr.com/api/v1/cart",
+      { productId },
+      { headers: { token } }
+    );
 
-   console.log(data);
+    console.log(data);
 
+   
    toast.success("the Product Add ", {
     position: "top-right",
     autoClose: 5000,
@@ -25,7 +62,17 @@ export async function addProductToCart(productId) {
     theme: "light",
     transition: Bounce,
     });
+  } catch (error) {
+    console.error("Error adding product to cart:", error.response?.data || error.message);
+
+    toast.error("Failed to add product. Try again!", {
+      position: "top-right",
+      autoClose: 3000,
+      transition: Bounce,
+    });
   }
+}
+
 // Assuming this is in your AddTocart.js file
 // import { toast } from 'react-toastify';
 // import axios from 'axios';

@@ -47,9 +47,9 @@ function App() {
       <CounterContextProvider>
         <HeroUIProvider>
           <RouterProvider router={router}>
-          <ToastContainer/>
+   
           </RouterProvider>
-        
+          <ToastContainer/>
         </HeroUIProvider>
     </CounterContextProvider>
     </AuthContextProvider>
