@@ -28,8 +28,8 @@ export default function Login() {
       if(res.data.message === "success"){
         localStorage.setItem("token", res.data.token);
         setIsLoggedIn(true)
-        // navigate(location.pathname=="/login"? "/": location.pathname)
-        navigate("/")
+        navigate(location.pathname=="/login"? "/": location.pathname)
+        // navigate("/")
       }
      
      })
