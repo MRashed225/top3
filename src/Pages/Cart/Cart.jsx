@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CartProduct from "../../Components/cartProduct/cartProduct";
+import CartProduct from "../../Components/CartProduct/CartProduct";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
