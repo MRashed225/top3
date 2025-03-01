@@ -12,11 +12,11 @@ export default function Register() {
   const [errorMessage, setErrorMessage] = useState( " ")
   
   const initialValues = {
-    name: "rashed",
-    email: "rashed123@gmail.com",
-    password: "rashed789",
-    rePassword: "rashed789",
-    phone: "+201144335454",
+    name: "",
+    email: "",
+    password: "",
+    rePassword: "",
+    phone: "",
   };
 
   const onSubmit =  () => {
