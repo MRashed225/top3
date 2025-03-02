@@ -58,7 +58,7 @@ export default function Login() {
       initialValues,
       onSubmit,
       validationSchema,
-       validate,
+  
     });
 
   return (
