@@ -79,14 +79,9 @@ export default function Navbar() {
      { isLoggedIn&&<NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={"foreground"  }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
+          <Link color="foreground" to={item==menuItems[0]?"/":"/"+item}>
+            {item}
+          </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>}
